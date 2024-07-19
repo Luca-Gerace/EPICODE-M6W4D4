@@ -1,45 +1,28 @@
 import express from 'express';
+import endpoints from 'express-list-endpoints';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import userRoutes from './routes/userRoutes.js';
+// import cors form 'cors';
 
-const server = express();
+dotenv.config();
 
-const port = 3001
-
-
-// Router instance
-const router = express.Router();
-
-// CRUD operations
-router.get('/', (req, res) => {
-    res.send('GET /');
-});
-
-router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    res.send(`GET /${id}`);
-});
-
-router.post('/', (req, res) => {
-    const data = req.body;
-    res.send(`POST - ${JSON.stringify(data)}`);
-});
-
-router.put('/:id', (req, res) => {
-    const id = req.params.id;
-    const data = req.body;
-    res.send(`PUT /${id} - ${JSON.stringify(data)}`);
-});
-
-router.delete('/:id', (req, res) => {
-    const id = req.params.id;
-    res.send(`DELETE /${id}`);
-});
+const app = express();
 
 // Middleware
-server.use(express.json());
+app.use(express.json());
 
-// Router to App
-server.use('/', router);
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => console.log('mongo connected!'))
+    .catch((error) => console.error('mongo: connection error -', error));
 
-server.listen(port, () => {
-    console.log("Server running on port ", port);
+const PORT = process.env.PORT || 5000;
+
+app.use('/api/users', userRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+    console.log(`Endpoints list:`);
+    console.table(endpoints(app));
 })

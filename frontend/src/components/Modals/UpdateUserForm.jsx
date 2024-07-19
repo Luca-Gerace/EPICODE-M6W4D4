@@ -1,5 +1,5 @@
 import { Button, Dialog, DialogBody, DialogHeader, IconButton, Input, Option, Select, Typography } from '@material-tailwind/react';
-import axios from '../modules/ApiAxios';
+import axios from '../../modules/ApiAxios';
 import { useState } from 'react';
 
 export default function UpdateUserForm({ user, setUsers, open, handleOpen }) {

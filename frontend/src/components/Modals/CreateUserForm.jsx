@@ -1,8 +1,8 @@
 import { Button, Typography, Input, Select, Option } from "@material-tailwind/react";
 import { useState } from "react";
-import axios from "../modules/ApiAxios";
+import axios from "../../modules/ApiAxios";
 
-export default function UserForm() {
+export default function CreateUserForm() {
 
     // Hooks
     const [users, setUsers] = useState([]);

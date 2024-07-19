@@ -1,13 +1,11 @@
-// import './App.css'
-
-import Card from "./components/Card"
+import PostContainer from "./components/PostContainer"
 
 function App() {
 
   return (
     <>
       <h1 className="text-3xl font-bold underline">Hi mate!</h1>
-      <Card />
+      <PostContainer />
     </>
   )
 }

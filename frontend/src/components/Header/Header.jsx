@@ -12,7 +12,7 @@ export default function Header() {
         <header>
             <nav className={`bg-theme-${theme}`}>
                 <div>
-                    <div className='w-100 flex'>
+                    <div className='w-[1024px] m-auto flex justify-between items-center'>
                         <a href="/"><Logo /></a>
                         <div className='flex'>
                             <UserTab />

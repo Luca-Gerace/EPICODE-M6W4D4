@@ -4,7 +4,7 @@ import Context from '../../modules/Context';
 import axios from "../../modules/ApiAxios";
 
 export default function CreateUserForm({ users, setUsers, open, handleOpen }) {
-
+    console.log("open prop:", open); // Debug log
     // Hooks
     const [newUser, setNewUser] = useState({
         name: '',

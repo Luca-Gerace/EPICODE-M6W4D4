@@ -14,10 +14,13 @@ app.use(express.json());
 
 app.use(cors());
 
-mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => console.log('mongo connected!'))
-    .catch((error) => console.error('mongo: connection error -', error));
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log('Connected to MongoDB');
+}).catch(err => {
+    console.error('Failed to connect to MongoDB', err);
+});
 
 const PORT = process.env.PORT || 5000;
 

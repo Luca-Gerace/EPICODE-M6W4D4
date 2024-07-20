@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
         res.json({
             users,
             currentPage: page,
-            totalPages: Math.ceil(total / limit),
+            totalPages: Math.ceil(usersCount / limit),
             totalUsers: usersCount,
         });
 
